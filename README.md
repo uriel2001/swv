@@ -1,4 +1,4 @@
-# Tool-chain for Software Visualization
+﻿# Tool-chain for Software Visualization
 
 One Paragraph of project description goes here
 
@@ -11,18 +11,48 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them
 
 ```
-Give examples
+CentOS 7 이상
 ```
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
+1. SWV 환경 구축을 위한 기본 디렉터리 생성
+   - 여섯 개의 디렉터리를 생성
 ```
-Give the example
+# mkdir /usr/local/SWV
+# mkdir /usr/local/SWV/dev
+# mkdir /usr/local/SWV/tools
+# mkdir /usr/local/SWV/server
+# mkdir /usr/local/SWV/src
+# mkdir /usr/local/SWV/toolchain
 ```
+2. Apache HTTP 서버 설치
+   - yum을 이용해 관련된 유틸리티 설치
+```
+# yum -y install gcc make gcc-c++ pcre-devel httpd-devel apr-devel apr-util-devel
+# yum -y install expat-devel
+```
+   - wget을 이용해 관련된 유틸리티 다운로드 및 설치
+```
+# cd /usr/local/SWV/server
+# wget http://archive.apache.org/dist/httpd/httpd-2.4.29.tar.gz
+# wget http://mirror.apache-kr.org/apr/apr-1.6.5.tar.gz
+# wget http://mirror.apache-kr.org/apr/apr-util-1.6.1.tar.gz
+# wget http://downloads.sourceforge.net/project/pcre/pcre/8.41/pcre-8.41.tar.gz
+# tar -xvzf httpd-2.4.29.tar.gz
+# tar -xzvf apr-1.6.5.tar.gz
+# tar -xzvf apr-util-1.6.1.tar.gz
+# tar -xzvf pcre-8.41.tar.gz
+# mv apr-1.6.5 ./httpd-2.4.29/srclib/apr
+# mv apr-util-1.6.1 ./httpd-2.4.29/srclib/apr-util
+# cd pcre-8.41
+# ./configure
+# make
+# make install
+```
+
+
+
 
 And repeat
 
