@@ -1,4 +1,4 @@
-﻿# Software Visualization Environment Install for Linux
+﻿# Software Visualization Environment Install Guide for Linux
 
 ## Getting Started
 
